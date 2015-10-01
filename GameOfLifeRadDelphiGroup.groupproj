@@ -1,0 +1,36 @@
+﻿<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+    <PropertyGroup>
+        <ProjectGuid>{A9B7947C-159F-460F-B4DC-3509FA856A2C}</ProjectGuid>
+    </PropertyGroup>
+    <ItemGroup>
+        <Projects Include="GameOfLifeRadDelphi.dproj">
+            <Dependencies/>
+        </Projects>
+    </ItemGroup>
+    <ProjectExtensions>
+        <Borland.Personality>Default.Personality.12</Borland.Personality>
+        <Borland.ProjectType/>
+        <BorlandProject>
+            <Default.Personality/>
+        </BorlandProject>
+    </ProjectExtensions>
+    <Target Name="GameOfLifeRadDelphi">
+        <MSBuild Projects="GameOfLifeRadDelphi.dproj"/>
+    </Target>
+    <Target Name="GameOfLifeRadDelphi:Clean">
+        <MSBuild Projects="GameOfLifeRadDelphi.dproj" Targets="Clean"/>
+    </Target>
+    <Target Name="GameOfLifeRadDelphi:Make">
+        <MSBuild Projects="GameOfLifeRadDelphi.dproj" Targets="Make"/>
+    </Target>
+    <Target Name="Build">
+        <CallTarget Targets="GameOfLifeRadDelphi"/>
+    </Target>
+    <Target Name="Clean">
+        <CallTarget Targets="GameOfLifeRadDelphi:Clean"/>
+    </Target>
+    <Target Name="Make">
+        <CallTarget Targets="GameOfLifeRadDelphi:Make"/>
+    </Target>
+    <Import Project="$(BDS)\Bin\CodeGear.Group.Targets" Condition="Exists('$(BDS)\Bin\CodeGear.Group.Targets')"/>
+</Project>
